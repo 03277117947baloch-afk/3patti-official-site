@@ -15,7 +15,7 @@ const CONFIG = {
     buttons: [
       { text: "⬇️ Download Now", class: "btn-primary", href: "#download" },
       { text: "📱 iOS App", class: "btn-secondary", href: "#" },
-      { text: "💬 Join WhatsApp", class: "btn-green", href: "https://chat.whatsapp.com/" }
+      { text: "💬 Join WhatsApp", class: "btn-green", href: "https://whatsapp.com/channel/0029Vb808AGKQuJPqrfCk50K" }
     ],
     stats: [
       { value: "50K+", label: "Active Players" },
@@ -25,30 +25,24 @@ const CONFIG = {
     ]
   },
   featured: {
-    image: "assets/placeholder-feature.jpg",
+    image: "assets/flyingchess.svg",
     badge: "🏆 Most Popular",
-    title: "3PATTI CLASSIC",
-    desc: "The ultimate 3 Patti experience with stunning graphics, real-time multiplayer action, and huge jackpots. Play with friends and strangers from around the world. Win big every day!",
+    title: "FlyingChess",
+    desc: "Play FlyingChess — join tournaments and compete with players worldwide. Click Join to open the official game page.",
     bullets: [
-      "Real-time Live Gameplay",
-      "Multiple Game Variants",
-      "24/7 Customer Support",
-      "Secure & Fair Gaming",
-      "Daily Bonuses & Rewards",
-      "Instant Withdrawal"
+      "Real-time Multiplayer",
+      "Tournaments & Events",
+      "Bonuses & Daily Rewards"
     ],
     buttons: [
-      { text: "⬇️ Download APK", class: "btn-primary", href: "#" },
-      { text: "📖 How to Play", class: "btn-outline", href: "#" }
+      { text: "▶️ Play FlyingChess", class: "btn-primary", href: "https://flyingchess.com?from_gameid=8818592&channelCode=100000" },
+      { text: "💬 Join WhatsApp", class: "btn-outline", href: "https://whatsapp.com/channel/0029Vb808AGKQuJPqrfCk50K" }
     ]
   },
   games: [
+    { id: "flyingchess", title: "FlyingChess", img: "assets/flyingchess.svg", tag: "OFFICIAL", tagClass: "hot", desc: "Official FlyingChess game — click Play.", play: "https://flyingchess.com?from_gameid=8818592&channelCode=100000" },
     { id: "classic", title: "Classic 3PATTI", img: "assets/game-classic.jpg", tag: "HOT", tagClass: "hot", desc: "Original 3 card poker with fast action.", play: "#" },
-    { id: "tournament", title: "Tournament", img: "assets/game-tournament.jpg", tag: "NEW", tagClass: "new", desc: "Compete & win exclusive prizes.", play: "#" },
-    { id: "cash", title: "Cash Game", img: "assets/game-cash.jpg", tag: "POPULAR", tagClass: "", desc: "High-stakes with real money.", play: "#" },
-    { id: "daily", title: "Daily Challenge", img: "assets/game-daily.jpg", tag: "BONUS", tagClass: "", desc: "Complete challenges for rewards.", play: "#" },
-    { id: "live", title: "Live Multiplayer", img: "assets/game-live.jpg", tag: "HOT", tagClass: "hot", desc: "Play live with real dealers.", play: "#" },
-    { id: "vip", title: "VIP Tables", img: "assets/game-vip.jpg", tag: "PREMIUM", tagClass: "", desc: "Exclusive tables for VIP members.", play: "#" }
+    { id: "tournament", title: "Tournament", img: "assets/game-tournament.jpg", tag: "NEW", tagClass: "new", desc: "Compete & win exclusive prizes.", play: "#" }
   ],
   videos: [
     { id: "v1", youtube: "dQw4w9WgXcQ", title: "How to play 3Patti - Quick Guide" },
@@ -63,18 +57,13 @@ const CONFIG = {
   infoBoxes: [
     { title: "🎮 Game Features", text: "3PATTI OFFICIAL offers premium gaming experience with real-time multiplayer, stunning graphics, fair gaming practices, and instant withdrawals." },
     { title: "🏆 Rewards & Bonuses", text: "Earn daily bonuses, loyalty rewards, referral commissions, and tournament prizes." },
-    { title: "🔒 Security", text: "Your account is protected with encryption and fair gameplay checks." },
-    { title: "💰 Easy Withdrawal", text: "Withdraw instantly using multiple payment methods." },
-    { title: "👥 Live Community", text: "Join thousands of players in real-time games and events." },
-    { title: "📞 24/7 Support", text: "Dedicated support via Chat, WhatsApp, Email and Phone." }
+    { title: "🔒 Security", text: "Your account is protected with encryption and fair gameplay checks." }
   ],
   faq: [
     { q: "How do I download 3PATTI OFFICIAL?", a: "Use the download links on this page or visit the official store pages." },
-    { q: "Is 3PATTI OFFICIAL safe and secure?", a: "Yes. We use industry-standard encryption and verified fair gaming." },
-    { q: "What are the minimum and maximum stakes?", a: "Tables range from ₹1 to ₹50,000+. Choose your table." },
-    { q: "How do I withdraw my winnings?", a: "Go to Withdraw in your account, choose method and enter amount. Processed within 24 hours." }
+    { q: "Is 3PATTI OFFICIAL safe and secure?", a: "Yes. We use industry-standard encryption and verified fair gaming." }
   ],
-  whatsappLink: "https://chat.whatsapp.com/"
+  whatsappLink: "https://whatsapp.com/channel/0029Vb808AGKQuJPqrfCk50K"
 };
 
 /* ---------------------
@@ -138,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3>${g.title}</h3>
         <p>${g.desc}</p>
         <div class="game-actions">
-          <a href="${g.play}" class="btn btn-primary">Play</a>
+          <a href="${g.play}" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Play</a>
           <a href="#" class="btn btn-outline">Info</a>
         </div>
       </div>
@@ -183,9 +172,11 @@ document.addEventListener("DOMContentLoaded", () => {
     faqList.appendChild(el);
   });
 
-  // WhatsApp
+  // WhatsApp - add image and join button
   const whatsappBtn = document.getElementById('whatsappBtn');
   whatsappBtn.href = CONFIG.whatsappLink;
+  whatsappBtn.innerHTML = `<img src="assets/whatsapp-channel.svg" alt="WhatsApp" style="height:20px; width:20px; margin-right:8px; vertical-align:middle"> Join WhatsApp Channel`;
+  whatsappBtn.target = "_blank"; whatsappBtn.rel = "noopener noreferrer";
 
   // Footer copyright
   document.getElementById('copyright').textContent = `© ${new Date().getFullYear()} ${CONFIG.siteName}. All Rights Reserved. | Licensed & Regulated`;

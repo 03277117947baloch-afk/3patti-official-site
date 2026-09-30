@@ -73,6 +73,7 @@ header{
 .hero-subtitle{font-size:18px;color:var(--text-muted);margin-bottom:24px;line-height:1.7}
 .hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
 .btn{min-height:48px;padding:0 20px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--radius);font-size:14px;font-weight:800;border:2px solid transparent;cursor:pointer;transition:all .25s;text-transform:uppercase}
+.btn img{height:20px;margin-right:8px}
 .btn-primary{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#000}
 .btn-secondary{background:var(--accent);color:#000}
 .btn-green{background:var(--button);color:#000}
